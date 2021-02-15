@@ -78,4 +78,8 @@ func is_in_range(vec: Vector2) -> bool:
 	var angle = get_angle_from_vector(vec)
 	if sign(begin) != sign(end):
 		return (angle >= (begin + 360.0)) or (angle <= end)
-	return (angle >= begin) and (angle <= end)
+	
+	if (end < begin):
+        return (angle >= begin) or (angle <= end)
+    else:
+        return (angle >= begin) and (angle <= end)
